@@ -1,5 +1,6 @@
 package dbService.executor;
 
+import dbService.DBService;
 import dbService.dao.UsersDAO;
 import dbService.dataSets.UsersDataSet;
 import org.hibernate.HibernateException;
@@ -13,14 +14,14 @@ import java.sql.SQLException;
 
 
 
-public class DBService {
+public class DBServiceImp implements DBService {
 
     private static final String hibernate_show_sql = "true";
     private static final String hibernate_hbm2ddl_auto = "update";
 
     private final SessionFactory sessionFactory;
 
-    public DBService() {
+    public DBServiceImp() {
         Configuration configuration = getMySqlConfiguration();
         sessionFactory = createSessionFactory(configuration);
     }
